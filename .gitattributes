@@ -1,2 +1,2 @@
 linguist-language=java
-*.js linguist-vendored=false
+eventracker/src/test/testdata/* linguist-vendored=false
