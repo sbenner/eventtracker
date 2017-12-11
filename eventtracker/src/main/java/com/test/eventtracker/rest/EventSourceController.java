@@ -22,27 +22,6 @@ public class EventSourceController {
 
     @Autowired
     private KafkaService service;
-
-//    @Autowired
-//    CacheManager cacheManager;
-
-
-//    @RequestMapping(
-//            method = RequestMethod.POST,
-//            consumes = {APPLICATION_JSON_VALUE},
-//            produces = {APPLICATION_JSON_VALUE}
-//    )
-//    @ResponseBody
-//    public ResponseEntity getEventBatch(
-//            @RequestBody BatchDTO batchDTO
-//    ) {
-//        logger.info("batch size " + batchDTO.getBatch().size());
-//        service.createEvents(batchDTO);
-//
-//        return new ResponseEntity(HttpStatus.ACCEPTED);
-//    }
-
-    //
     @RequestMapping(
             method = RequestMethod.POST,
             value = "/{schema}/{id}",

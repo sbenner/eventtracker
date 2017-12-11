@@ -10,7 +10,10 @@ import org.eclipse.jetty.server.Slf4jRequestLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.boot.context.embedded.jetty.JettyEmbeddedServletContainerFactory;
 import org.springframework.boot.context.embedded.jetty.JettyServerCustomizer;
 import org.springframework.boot.web.servlet.ServletComponentScan;
@@ -31,9 +34,8 @@ import java.util.Properties;
 @SpringBootApplication
 @ServletComponentScan
 @ComponentScan("com.test.eventtracker")
-@EnableCaching
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class,HibernateJpaAutoConfiguration.class})
 @EnableWebMvc
-@EnableJpaRepositories("com.test.eventtracker.persistence.repository")
 public class EventTrackerApplication {
     private final static Logger logger = LoggerFactory.getLogger(EventTrackerApplication.class);
 
